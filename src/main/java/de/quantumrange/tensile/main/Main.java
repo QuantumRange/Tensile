@@ -13,16 +13,20 @@ public class Main {
 	private static final AppDirs APP_DIRS = AppDirsFactory.getInstance();
 
 	private static final String C_APP_NAME = "Tensile",
-			                   C_AUTHOR = "de.quantumrange",
+			                   C_AUTHOR = "QuantumRange",
 	                           C_VERSION = "v1.0.0";
 
 	public static final File USER_DATA_DIR		= new File(APP_DIRS.getUserDataDir(C_APP_NAME, C_VERSION, C_AUTHOR));
 	public static final File USER_CONFIG_DIR	= new File(APP_DIRS.getUserConfigDir(C_APP_NAME, C_VERSION, C_AUTHOR));
 	public static final File USER_CACHE_DIR		= new File(APP_DIRS.getUserCacheDir(C_APP_NAME, C_VERSION, C_AUTHOR));
 
-	public static final UserManager USER_MANAGER = new UserManager(new File(USER_DATA_DIR, ""));
+	public static final UserManager USER_MANAGER = new UserManager(new File(USER_DATA_DIR, "users"));
 
 	public static void main(String[] args) {
+		System.out.println("Data Dir: " + USER_DATA_DIR);
+		System.out.println("Config Dir: " + USER_CONFIG_DIR);
+		System.out.println("Cache Dir: " + USER_CACHE_DIR);
+
 		JFrame frame = new JFrame("AccountGUI");
 		frame.setContentPane(new AccountGUI().viewPanel);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
